@@ -8,6 +8,7 @@ from fastapi import FastAPI, HTTPException, Query
 from .contracts import (
     AttemptIn,
     DailySessionRecord,
+    Mistake,
     ReviewGradeIn,
     Scenario,
     ScenePack,
@@ -17,8 +18,8 @@ from .contracts import (
     WeeklyTestStartResponse,
     WeeklyTestSubmitIn,
 )
+from .content_library import generate_daily_session
 from .sample_content import SAMPLE_SCENARIOS, SAMPLE_SCENES
-from .sample_sessions import SAMPLE_CAFE_FORMAL
 from .store import InMemoryStore
 
 app = FastAPI(title="Lingo API", version="0.0.1")
@@ -33,40 +34,65 @@ def health():
     return {"ok": True}
 
 @app.get("/v1/daily-session", response_model=DailySessionRecord)
-def get_daily_session(session_date: date | None = Query(None, alias="date")):
+def get_daily_session(
+    session_date: date | None = Query(None, alias="date"),
+    scenario: str | None = Query(None),
+    tone: str | None = Query(None),
+):
     resolved_date = session_date or date.today()
-    existing = store.get_session(resolved_date)
+    existing = store.get_session(resolved_date, scenario, tone)
     if existing:
         return existing
 
-    # MVP: return sample. Next: generate from content + user profile.
+    try:
+        daily_session = generate_daily_session(scenario, tone, resolved_date)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
     session = DailySessionRecord(
         id=str(uuid4()),
         session_date=resolved_date,
-        session_json=SAMPLE_CAFE_FORMAL,
+        session_json=daily_session,
     )
-    store.save_session(resolved_date, session)
+    store.save_session(resolved_date, session, scenario, tone)
     return session
 
 @app.post("/v1/attempts")
 def post_attempt(attempt: AttemptIn):
-    # MVP: store attempt. Next: detect mistakes -> generate SRS cards.
     store.add_attempt(attempt.model_dump())
     created_card_id = None
-    if attempt.target_text:
+    created_mistake_id = None
+    if attempt.target_text and attempt.stt_text and attempt.stt_text != attempt.target_text:
+        created_mistake_id = str(uuid4())
+        mistake = Mistake(
+            id=created_mistake_id,
+            daily_session_id=attempt.daily_session_id,
+            target_text=attempt.target_text,
+            input_text=attempt.stt_text,
+            detected_at=date.today(),
+        )
+        store.add_mistake(mistake)
+
         created_card_id = str(uuid4())
         card = SRSCard(
             id=created_card_id,
             front=attempt.target_text,
-            back=attempt.stt_text or attempt.target_text,
+            back=attempt.target_text,
             due_date=date.today(),
             ease=2.5,
-            tags=["daily-session"],
+            interval_days=0,
+            repetitions=0,
+            last_reviewed=None,
+            tags=["mistake", "daily-session"],
             source="mistake",
-            source_id=None,
+            source_id=created_mistake_id,
         )
         store.add_card(card)
-    return {"ok": True, "created_card_id": created_card_id}
+    return {
+        "ok": True,
+        "created_mistake_id": created_mistake_id,
+        "created_card_id": created_card_id,
+    }
 
 
 @app.get("/v1/review/due", response_model=list[SRSCard])
@@ -81,17 +107,33 @@ def post_review_grade(grade: ReviewGradeIn):
     if not card:
         raise HTTPException(status_code=404, detail="Card not found")
 
-    new_ease = max(1.3, card.ease + (grade.grade - 1.5) * 0.1)
-    if grade.grade == 0:
-        next_due = date.today()
-    elif grade.grade == 1:
-        next_due = date.today() + timedelta(days=1)
-    elif grade.grade == 2:
-        next_due = date.today() + timedelta(days=3)
+    quality = grade.grade
+    new_ease = max(
+        1.3,
+        card.ease + (0.1 - (3 - quality) * (0.08 + (3 - quality) * 0.02)),
+    )
+    if quality < 2:
+        repetitions = 0
+        interval_days = 1
     else:
-        next_due = date.today() + timedelta(days=7)
+        repetitions = card.repetitions + 1
+        if repetitions == 1:
+            interval_days = 1
+        elif repetitions == 2:
+            interval_days = 3
+        else:
+            interval_days = max(1, round(card.interval_days * new_ease))
 
-    updated = card.model_copy(update={"ease": new_ease, "due_date": next_due})
+    next_due = date.today() + timedelta(days=interval_days)
+    updated = card.model_copy(
+        update={
+            "ease": new_ease,
+            "due_date": next_due,
+            "interval_days": interval_days,
+            "repetitions": repetitions,
+            "last_reviewed": date.today(),
+        }
+    )
     store.save_card(updated)
     return {"ok": True, "due_date": updated.due_date.isoformat(), "ease": updated.ease}
 

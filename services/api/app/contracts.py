@@ -71,9 +71,20 @@ class SRSCard(BaseModel):
     back: str = Field(min_length=1)
     due_date: date
     ease: float = Field(ge=1.0)
+    interval_days: int = Field(ge=0)
+    repetitions: int = Field(ge=0)
+    last_reviewed: Optional[date] = None
     tags: List[str] = Field(default_factory=list)
     source: CardSource
     source_id: Optional[str] = None
+
+
+class Mistake(BaseModel):
+    id: str = Field(min_length=1)
+    daily_session_id: str = Field(min_length=1)
+    target_text: str = Field(min_length=1)
+    input_text: str = Field(min_length=1)
+    detected_at: date
 
 
 class ReviewGradeIn(BaseModel):
