@@ -1,7 +1,7 @@
 {
   "name": "lingo-monorepo",
   "private": true,
-  "packageManager": "pnpm@9",
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev:mobile": "pnpm -C apps/mobile start",
     "dev:api": "cd services/api && uvicorn app.main:app --reload --port 8000",

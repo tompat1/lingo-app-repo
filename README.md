@@ -19,6 +19,14 @@ pnpm start
 ### 2) API
 ```bash
 cd services/api
+./scripts/dev.sh
+```
+
+Om du har proxy-variabler i miljön (t.ex. `HTTP_PROXY`), se till att de är avstängda
+så att `pip install` kan nå PyPI. `scripts/dev.sh` gör detta automatiskt.
+
+```bash
+cd services/api
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
