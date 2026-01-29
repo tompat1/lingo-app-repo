@@ -29,6 +29,27 @@ for scenario in SAMPLE_SCENARIOS:
 for scene_pack in SAMPLE_SCENES.values():
     store.add_scene_pack(scene_pack)
 
+def seed_start_srs(session: DailySessionRecord) -> None:
+    if not session.session_json.start_srs:
+        return
+    if any("starter-pack" in card.tags for card in store.srs_cards.values()):
+        return
+    for seed in session.session_json.start_srs:
+        card = SRSCard(
+            id=str(uuid4()),
+            front=seed.front,
+            back=seed.back,
+            due_date=session.session_date,
+            ease=2.5,
+            interval_days=0,
+            repetitions=0,
+            last_reviewed=None,
+            tags=seed.tags,
+            source="highfreq",
+            source_id=session.id,
+        )
+        store.add_card(card)
+
 @app.get("/health")
 def health():
     return {"ok": True}
@@ -55,6 +76,7 @@ def get_daily_session(
         session_json=daily_session,
     )
     store.save_session(resolved_date, session, scenario, tone)
+    seed_start_srs(session)
     return session
 
 @app.post("/v1/attempts")
