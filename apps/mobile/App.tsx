@@ -13,6 +13,7 @@ type DailySession = {
   }>;
   dialog_seed: { role: string; opening: string };
   patterns?: Array<{ template: string; examples: string[] }>;
+  start_srs?: Array<{ front: string; back: string; tags: string[] }>;
 };
 
 type DailySessionRecord = {

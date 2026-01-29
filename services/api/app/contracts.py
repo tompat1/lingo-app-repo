@@ -25,6 +25,11 @@ class Pattern(BaseModel):
     template: str = Field(min_length=1)
     examples: List[str] = Field(min_length=1)
 
+class SRSSeed(BaseModel):
+    front: str = Field(min_length=1)
+    back: str = Field(min_length=1)
+    tags: List[str] = Field(default_factory=list)
+
 class DailySession(BaseModel):
     mission: str = Field(min_length=1)
     scene: str = Field(min_length=1)
@@ -32,6 +37,7 @@ class DailySession(BaseModel):
     sentences: List[Sentence] = Field(min_length=1)
     dialog_seed: DialogSeed
     patterns: Optional[List[Pattern]] = None
+    start_srs: Optional[List[SRSSeed]] = None
 
 
 class DailySessionRecord(BaseModel):
