@@ -3,9 +3,13 @@
   "private": true,
   "packageManager": "pnpm@9.0.0",
   "scripts": {
+    "dev": "concurrently \"pnpm dev:mobile\" \"pnpm dev:api\"",
     "dev:mobile": "pnpm -C apps/mobile start",
     "dev:api": "cd services/api && uvicorn app.main:app --reload --port 8000",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
