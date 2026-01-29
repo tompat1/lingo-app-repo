@@ -30,3 +30,6 @@ API: `http://localhost:8000/docs`
 ## Viktigt
 - Allt AI-genererat ska vara **renderbar JSON** (se `packages/contracts`).
 - MVP kör in-memory storage först; byt till Supabase/Postgres när loop + kontrakt sitter.
+
+## Databasschema
+Se `docs/db-schema.md` för Postgres/Supabase-tabellerna.
