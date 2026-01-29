@@ -9,7 +9,13 @@ type DailySession = {
   mission: string;
   scene: string;
   tone: "formal" | "casual";
-  sentences: Array<{ pl: string; sv: string }>;
+  sentences: Array<{
+    pl: string;
+    sv: string;
+    checks?: Array<{ q: string; a: string }>;
+  }>;
+  dialog_seed: { role: string; opening: string };
+  patterns?: Array<{ template: string; examples: string[] }>;
 };
 
 const API_BASE = process.env.EXPO_PUBLIC_API_BASE ?? "http://localhost:8000";
@@ -78,6 +84,40 @@ export default function App() {
             >
               <Text style={{ fontWeight: "600" }}>Lyssna (TTS)</Text>
             </Pressable>
+
+            {firstSentence?.checks?.length ? (
+              <View style={{ gap: 6 }}>
+                <Text style={{ fontSize: 16, fontWeight: "600" }}>
+                  Förståelsekoll
+                </Text>
+                {firstSentence.checks.map((check, index) => (
+                  <View key={`${check.q}-${index}`} style={{ gap: 2 }}>
+                    <Text>• {check.q}</Text>
+                    <Text style={{ opacity: 0.8 }}>Svar: {check.a}</Text>
+                  </View>
+                ))}
+              </View>
+            ) : null}
+
+            <View style={{ gap: 4 }}>
+              <Text style={{ fontSize: 16, fontWeight: "600" }}>Dialog-start</Text>
+              <Text style={{ opacity: 0.8 }}>{session.dialog_seed.role}</Text>
+              <Text>{session.dialog_seed.opening}</Text>
+            </View>
+
+            {session.patterns?.length ? (
+              <View style={{ gap: 6 }}>
+                <Text style={{ fontSize: 16, fontWeight: "600" }}>Mönster</Text>
+                {session.patterns.map((pattern, index) => (
+                  <View key={`${pattern.template}-${index}`} style={{ gap: 2 }}>
+                    <Text>{pattern.template}</Text>
+                    <Text style={{ opacity: 0.8 }}>
+                      Exempel: {pattern.examples.join(" ")}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            ) : null}
           </View>
         ) : (
           <Text style={{ marginTop: 12, opacity: 0.7 }}>Ingen session laddad ännu.</Text>
