@@ -9,11 +9,22 @@ Språk-agnostisk, multimodal språkcoach (bild + tal + text) med fokus på speak
 
 ## Snabbstart (lokalt)
 
+### Monorepo (mobile + API)
+```bash
+pnpm install
+pnpm dev
+```
+
 ### 1) Mobile
 ```bash
 cd apps/mobile
 pnpm install
 pnpm start
+```
+
+Start-check för Expo-entry (valfritt men bra för CI/lokalt):
+```bash
+pnpm -C apps/mobile test:start-check
 ```
 
 ### 2) API
