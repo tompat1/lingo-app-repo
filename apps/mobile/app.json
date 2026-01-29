@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Lingo",
+    "slug": "lingo",
+    "version": "0.0.1",
+    "scheme": "lingo",
+    "platforms": ["ios", "android", "web"],
+    "jsEngine": "hermes"
+  }
+}
