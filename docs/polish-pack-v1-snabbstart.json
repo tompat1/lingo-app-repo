@@ -1,0 +1,223 @@
+{
+  "highfreq_30": {
+    "pack": "pl_v1",
+    "set": "highfreq_30",
+    "items": [
+      {"pl": "Dzień dobry.", "sv": "God dag.", "tone": "formal"},
+      {"pl": "Cześć!", "sv": "Hej!", "tone": "casual"},
+      {"pl": "Przepraszam.", "sv": "Ursäkta.", "tone": "both"},
+      {"pl": "Dziękuję.", "sv": "Tack.", "tone": "both"},
+      {"pl": "Poproszę...", "sv": "Jag vill ha...", "tone": "formal"},
+      {"pl": "Czy mogę prosić o rachunek?", "sv": "Kan jag få notan?", "tone": "formal"},
+      {"pl": "Ile to kosztuje?", "sv": "Hur mycket kostar det?", "tone": "both"},
+      {"pl": "Nie rozumiem.", "sv": "Jag förstår inte.", "tone": "both"},
+      {"pl": "Może Pan/Pani powtórzyć?", "sv": "Kan ni upprepa?", "tone": "formal"},
+      {"pl": "Możesz powtórzyć?", "sv": "Kan du upprepa?", "tone": "casual"},
+      {"pl": "Gdzie jest... ?", "sv": "Var är... ?", "tone": "both"},
+      {"pl": "Jak dojść do... ?", "sv": "Hur tar man sig till... ?", "tone": "both"},
+      {"pl": "Która godzina?", "sv": "Vad är klockan?", "tone": "both"},
+      {"pl": "Proszę wolniej.", "sv": "Snabbare? (nej) Långsammare, tack.", "tone": "both"},
+      {"pl": "To wszystko.", "sv": "Det var allt.", "tone": "both"},
+      {"pl": "Chciałbym/chciałabym...", "sv": "Jag skulle vilja...", "tone": "formal"},
+      {"pl": "Biorę to.", "sv": "Jag tar den/det.", "tone": "both"},
+      {"pl": "Proszę wziąć.", "sv": "Varsågod (ta).", "tone": "formal"},
+      {"pl": "Na miejscu czy na wynos?", "sv": "Här eller take-away?", "tone": "both"},
+      {"pl": "Na miejscu.", "sv": "Här.", "tone": "both"},
+      {"pl": "Na wynos.", "sv": "Take-away.", "tone": "both"},
+      {"pl": "Bez cukru.", "sv": "Utan socker.", "tone": "both"},
+      {"pl": "Z mlekiem.", "sv": "Med mjölk.", "tone": "both"},
+      {"pl": "Jeszcze raz, proszę.", "sv": "En gång till, tack.", "tone": "both"},
+      {"pl": "Nie ma problemu.", "sv": "Inga problem.", "tone": "both"},
+      {"pl": "Szukam...", "sv": "Jag letar efter...", "tone": "both"},
+      {"pl": "Pomocy, proszę.", "sv": "Hjälp, tack.", "tone": "formal"},
+      {"pl": "Czy to jest blisko?", "sv": "Är det nära?", "tone": "both"},
+      {"pl": "Dobrze.", "sv": "Okej / bra.", "tone": "both"},
+      {"pl": "Do widzenia.", "sv": "Hej då.", "tone": "formal"}
+    ]
+  },
+  "day1_cafe": {
+    "mission": "Beställa på café med rätt artighet",
+    "scene": "cafe",
+    "tone": "formal",
+    "sentences": [
+      {
+        "pl": "Dzień dobry, poproszę kawę z mlekiem.",
+        "sv": "God dag, jag vill ha kaffe med mjölk.",
+        "checks": [
+          {"q": "Vad beställer du?", "a": "kawę z mlekiem"},
+          {"q": "Är tonen formell?", "a": "ja"}
+        ]
+      },
+      {
+        "pl": "Poproszę też wodę niegazowaną.",
+        "sv": "Jag vill också ha stilla vatten.",
+        "checks": [
+          {"q": "Är vattnet kolsyrat?", "a": "nej"},
+          {"q": "Vilket ord betyder också?", "a": "też"}
+        ]
+      },
+      {
+        "pl": "Czy mogę prosić o dwa rogaliki?",
+        "sv": "Kan jag få två croissanter?",
+        "checks": [
+          {"q": "Hur många croissanter?", "a": "dwa"},
+          {"q": "Vilken fras är artig?", "a": "Czy mogę prosić o..."}
+        ]
+      },
+      {
+        "pl": "Na miejscu, proszę.",
+        "sv": "Här, tack.",
+        "checks": [
+          {"q": "Här eller take-away?", "a": "na miejscu"},
+          {"q": "Vilket ord betyder 'tack' här?", "a": "proszę"}
+        ]
+      },
+      {
+        "pl": "Czy to będzie gotówką czy kartą?",
+        "sv": "Blir det kontant eller med kort?",
+        "checks": [
+          {"q": "Vad är alternativen?", "a": "gotówką / kartą"},
+          {"q": "Vad frågar personalen om?", "a": "betalning"}
+        ]
+      },
+      {
+        "pl": "Kartą, proszę.",
+        "sv": "Med kort, tack.",
+        "checks": [
+          {"q": "Hur betalar du?", "a": "kartą"},
+          {"q": "Är detta ett kort svar?", "a": "ja"}
+        ]
+      },
+      {
+        "pl": "Czy dostanę paragon?",
+        "sv": "Kan jag få kvitto?",
+        "checks": [
+          {"q": "Vad vill du ha?", "a": "paragon"},
+          {"q": "Är det en fråga?", "a": "ja"}
+        ]
+      },
+      {
+        "pl": "Dziękuję, do widzenia!",
+        "sv": "Tack, hej då!",
+        "checks": [
+          {"q": "Vilket ord betyder tack?", "a": "Dziękuję"},
+          {"q": "Vilken fras betyder hej då?", "a": "do widzenia"}
+        ]
+      },
+      {
+        "pl": "Przepraszam, czy tu jest toaleta?",
+        "sv": "Ursäkta, finns det en toalett här?",
+        "checks": [
+          {"q": "Vad letar du efter?", "a": "toaleta"},
+          {"q": "Vilket ord inleder artigt?", "a": "Przepraszam"}
+        ]
+      },
+      {
+        "pl": "Może Pan powtórzyć wolniej?",
+        "sv": "Kan ni upprepa långsammare?",
+        "checks": [
+          {"q": "Är det formellt tilltal?", "a": "ja"},
+          {"q": "Vilket ord betyder långsammare?", "a": "wolniej"}
+        ]
+      }
+    ],
+    "dialog_seed": {
+      "role": "barista",
+      "opening": "Dzień dobry! Co podać?"
+    },
+    "patterns": [
+      {
+        "template": "Poproszę + [sak].",
+        "examples": ["Poproszę wodę.", "Poproszę rachunek.", "Poproszę dwa rogaliki."]
+      },
+      {
+        "template": "Czy mogę prosić o + [sak/liczba + rzecz]?",
+        "examples": [
+          "Czy mogę prosić o kawę?",
+          "Czy mogę prosić o dwie bułki?",
+          "Czy mogę prosić o paragon?"
+        ]
+      }
+    ]
+  },
+  "scenario_cafe_dialogstarters": {
+    "scenario": "cafe",
+    "modes": {
+      "formal": [
+        {"role": "barista", "opening": "Dzień dobry! Co podać?"},
+        {"role": "barista", "opening": "Na miejscu czy na wynos?"},
+        {"role": "barista", "opening": "Czy to będzie gotówką czy kartą?"}
+      ],
+      "casual": [
+        {"role": "barista", "opening": "Cześć! Co dla ciebie?"},
+        {"role": "barista", "opening": "Na miejscu czy na wynos?"},
+        {"role": "barista", "opening": "Gotówką czy kartą?"}
+      ]
+    }
+  },
+  "srs_common_mistakes_10": {
+    "set": "srs_common_mistakes_10",
+    "cards": [
+      {
+        "front": "Artigt 'Jag vill ha kaffe' (formellt)",
+        "back": "Poproszę kawę. / Dzień dobry, poproszę kawę.",
+        "tags": ["cafe", "politeness", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Fråga 'Kan du upprepa?' (casual)",
+        "back": "Możesz powtórzyć?",
+        "tags": ["comprehension", "casual", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Fråga 'Kan ni upprepa?' (formal)",
+        "back": "Może Pan/Pani powtórzyć?",
+        "tags": ["comprehension", "formal", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Här / Take-away",
+        "back": "Na miejscu / Na wynos",
+        "tags": ["cafe", "travel", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Notan (restaurang/café)",
+        "back": "Rachunek",
+        "tags": ["restaurant", "cafe", "vocab", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Kvitto",
+        "back": "Paragon",
+        "tags": ["shop", "cafe", "vocab", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Långsammare, tack",
+        "back": "Proszę wolniej.",
+        "tags": ["comprehension", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Ursäkta (för att få uppmärksamhet)",
+        "back": "Przepraszam.",
+        "tags": ["politeness", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Hur mycket kostar det?",
+        "back": "Ile to kosztuje?",
+        "tags": ["shop", "travel", "A"],
+        "source": "highfreq"
+      },
+      {
+        "front": "Hej då (formellt)",
+        "back": "Do widzenia.",
+        "tags": ["politeness", "formal", "A"],
+        "source": "highfreq"
+      }
+    ]
+  }
+}
