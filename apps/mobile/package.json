@@ -2,12 +2,13 @@
   "name": "@lingo/mobile",
   "private": true,
   "version": "0.0.1",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.ts",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "test:start-check": "node scripts/verify-entry.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint ."
   },

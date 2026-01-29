@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"pnpm dev:mobile\" \"pnpm dev:api\"",
     "dev:mobile": "pnpm -C apps/mobile start",
-    "dev:api": "cd services/api && uvicorn app.main:app --reload --port 8000",
+    "dev:api": "cd services/api && ./scripts/dev.sh",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck"
   },
