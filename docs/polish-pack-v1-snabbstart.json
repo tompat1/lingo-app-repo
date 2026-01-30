@@ -1,223 +1,296 @@
 {
-  "highfreq_30": {
-    "pack": "pl_v1",
-    "set": "highfreq_30",
-    "items": [
-      {"pl": "Dzień dobry.", "sv": "God dag.", "tone": "formal"},
-      {"pl": "Cześć!", "sv": "Hej!", "tone": "casual"},
-      {"pl": "Przepraszam.", "sv": "Ursäkta.", "tone": "both"},
-      {"pl": "Dziękuję.", "sv": "Tack.", "tone": "both"},
-      {"pl": "Poproszę...", "sv": "Jag vill ha...", "tone": "formal"},
-      {"pl": "Czy mogę prosić o rachunek?", "sv": "Kan jag få notan?", "tone": "formal"},
-      {"pl": "Ile to kosztuje?", "sv": "Hur mycket kostar det?", "tone": "both"},
-      {"pl": "Nie rozumiem.", "sv": "Jag förstår inte.", "tone": "both"},
-      {"pl": "Może Pan/Pani powtórzyć?", "sv": "Kan ni upprepa?", "tone": "formal"},
-      {"pl": "Możesz powtórzyć?", "sv": "Kan du upprepa?", "tone": "casual"},
-      {"pl": "Gdzie jest... ?", "sv": "Var är... ?", "tone": "both"},
-      {"pl": "Jak dojść do... ?", "sv": "Hur tar man sig till... ?", "tone": "both"},
-      {"pl": "Która godzina?", "sv": "Vad är klockan?", "tone": "both"},
-      {"pl": "Proszę wolniej.", "sv": "Snabbare? (nej) Långsammare, tack.", "tone": "both"},
-      {"pl": "To wszystko.", "sv": "Det var allt.", "tone": "both"},
-      {"pl": "Chciałbym/chciałabym...", "sv": "Jag skulle vilja...", "tone": "formal"},
-      {"pl": "Biorę to.", "sv": "Jag tar den/det.", "tone": "both"},
-      {"pl": "Proszę wziąć.", "sv": "Varsågod (ta).", "tone": "formal"},
-      {"pl": "Na miejscu czy na wynos?", "sv": "Här eller take-away?", "tone": "both"},
-      {"pl": "Na miejscu.", "sv": "Här.", "tone": "both"},
-      {"pl": "Na wynos.", "sv": "Take-away.", "tone": "both"},
-      {"pl": "Bez cukru.", "sv": "Utan socker.", "tone": "both"},
-      {"pl": "Z mlekiem.", "sv": "Med mjölk.", "tone": "both"},
-      {"pl": "Jeszcze raz, proszę.", "sv": "En gång till, tack.", "tone": "both"},
-      {"pl": "Nie ma problemu.", "sv": "Inga problem.", "tone": "both"},
-      {"pl": "Szukam...", "sv": "Jag letar efter...", "tone": "both"},
-      {"pl": "Pomocy, proszę.", "sv": "Hjälp, tack.", "tone": "formal"},
-      {"pl": "Czy to jest blisko?", "sv": "Är det nära?", "tone": "both"},
-      {"pl": "Dobrze.", "sv": "Okej / bra.", "tone": "both"},
-      {"pl": "Do widzenia.", "sv": "Hej då.", "tone": "formal"}
-    ]
+  "meta": {
+    "title": "Polska skolan – omstart",
+    "version": "v1.1",
+    "language": "pl",
+    "source": "Omstart baserad på 6 moduler + vecka 1-starter"
   },
-  "day1_cafe": {
-    "mission": "Beställa på café med rätt artighet",
-    "scene": "cafe",
-    "tone": "formal",
-    "sentences": [
-      {
-        "pl": "Dzień dobry, poproszę kawę z mlekiem.",
-        "sv": "God dag, jag vill ha kaffe med mjölk.",
-        "checks": [
-          {"q": "Vad beställer du?", "a": "kawę z mlekiem"},
-          {"q": "Är tonen formell?", "a": "ja"}
-        ]
-      },
-      {
-        "pl": "Poproszę też wodę niegazowaną.",
-        "sv": "Jag vill också ha stilla vatten.",
-        "checks": [
-          {"q": "Är vattnet kolsyrat?", "a": "nej"},
-          {"q": "Vilket ord betyder också?", "a": "też"}
-        ]
-      },
-      {
-        "pl": "Czy mogę prosić o dwa rogaliki?",
-        "sv": "Kan jag få två croissanter?",
-        "checks": [
-          {"q": "Hur många croissanter?", "a": "dwa"},
-          {"q": "Vilken fras är artig?", "a": "Czy mogę prosić o..."}
-        ]
-      },
-      {
-        "pl": "Na miejscu, proszę.",
-        "sv": "Här, tack.",
-        "checks": [
-          {"q": "Här eller take-away?", "a": "na miejscu"},
-          {"q": "Vilket ord betyder 'tack' här?", "a": "proszę"}
-        ]
-      },
-      {
-        "pl": "Czy to będzie gotówką czy kartą?",
-        "sv": "Blir det kontant eller med kort?",
-        "checks": [
-          {"q": "Vad är alternativen?", "a": "gotówką / kartą"},
-          {"q": "Vad frågar personalen om?", "a": "betalning"}
-        ]
-      },
-      {
-        "pl": "Kartą, proszę.",
-        "sv": "Med kort, tack.",
-        "checks": [
-          {"q": "Hur betalar du?", "a": "kartą"},
-          {"q": "Är detta ett kort svar?", "a": "ja"}
-        ]
-      },
-      {
-        "pl": "Czy dostanę paragon?",
-        "sv": "Kan jag få kvitto?",
-        "checks": [
-          {"q": "Vad vill du ha?", "a": "paragon"},
-          {"q": "Är det en fråga?", "a": "ja"}
-        ]
-      },
-      {
-        "pl": "Dziękuję, do widzenia!",
-        "sv": "Tack, hej då!",
-        "checks": [
-          {"q": "Vilket ord betyder tack?", "a": "Dziękuję"},
-          {"q": "Vilken fras betyder hej då?", "a": "do widzenia"}
-        ]
-      },
-      {
-        "pl": "Przepraszam, czy tu jest toaleta?",
-        "sv": "Ursäkta, finns det en toalett här?",
-        "checks": [
-          {"q": "Vad letar du efter?", "a": "toaleta"},
-          {"q": "Vilket ord inleder artigt?", "a": "Przepraszam"}
-        ]
-      },
-      {
-        "pl": "Może Pan powtórzyć wolniej?",
-        "sv": "Kan ni upprepa långsammare?",
-        "checks": [
-          {"q": "Är det formellt tilltal?", "a": "ja"},
-          {"q": "Vilket ord betyder långsammare?", "a": "wolniej"}
-        ]
-      }
+  "module_1_mission_plan": {
+    "prompt": "Definiera en 5-veckors plan för polska för [vardag i Polen / jobb / resa] med fokus på högfrekvent tal + lyssning. Exkludera låg-yield grammatikkapitlen. Format: Daglig rutin (20–40 min), Veckomål, Field missions (2–3 uppdrag/vecka), Minsta nödvändiga grammatik som mönster, Veckotest + justering.",
+    "recommended_weeks": [
+      "Vecka 1: Överlevnad & artighet (hälsa, tack, beställa, enkla frågor)",
+      "Vecka 2: Praktisk vardag (butik, tider, priser, kollektivtrafik)",
+      "Vecka 3: Socialt & småprat (träffa folk, intressen, planer)",
+      "Vecka 4: Problem & service (fel på order, retur, ringa boka, klaga vänligt)",
+      "Vecka 5: Flyt & Polish mode (snabbare tempo, naturliga fillers, mer lyssning)"
     ],
-    "dialog_seed": {
-      "role": "barista",
-      "opening": "Dzień dobry! Co podać?"
-    },
-    "patterns": [
-      {
-        "template": "Poproszę + [sak].",
-        "examples": ["Poproszę wodę.", "Poproszę rachunek.", "Poproszę dwa rogaliki."]
-      },
-      {
-        "template": "Czy mogę prosić o + [sak/liczba + rzecz]?",
-        "examples": [
-          "Czy mogę prosić o kawę?",
-          "Czy mogę prosić o dwie bułki?",
-          "Czy mogę prosić o paragon?"
-        ]
-      }
-    ]
-  },
-  "scenario_cafe_dialogstarters": {
-    "scenario": "cafe",
-    "modes": {
-      "formal": [
-        {"role": "barista", "opening": "Dzień dobry! Co podać?"},
-        {"role": "barista", "opening": "Na miejscu czy na wynos?"},
-        {"role": "barista", "opening": "Czy to będzie gotówką czy kartą?"}
+    "week_1_starter_pack": {
+      "daily_routine": [
+        "5 min: läsa 10 meningar högt",
+        "10–15 min: lyssning + svara på checks",
+        "5–10 min: rollspel (café/butik)",
+        "5 min: repetera 10 SRS-ord"
       ],
-      "casual": [
-        {"role": "barista", "opening": "Cześć! Co dla ciebie?"},
-        {"role": "barista", "opening": "Na miejscu czy na wynos?"},
-        {"role": "barista", "opening": "Gotówką czy kartą?"}
-      ]
+      "weekly_goals": [
+        "Kunna hälsa artigt och presentera dig kort",
+        "Kunna beställa och betala",
+        "Kunna be om repetition/långsammare",
+        "Kunna fråga efter plats/tid"
+      ],
+      "field_missions": [
+        "Beställ något på café med proszę + sak",
+        "Fråga efter närmaste butik/przystanek",
+        "Be om kvitto och säg tack/hej då"
+      ],
+      "grammar_patterns": [
+        "Proszę + [sak]",
+        "Czy mogę + [verb]...?",
+        "Nie rozumiem / Nie wiem + [fortsättning]"
+      ],
+      "week_test": "15 snabba översättningar + 5 lyssningsmeningar + mini-dialog (6 repliker)."
     }
   },
-  "srs_common_mistakes_10": {
-    "set": "srs_common_mistakes_10",
-    "cards": [
+  "module_2_high_frequency": {
+    "prompt": "Extrahera de topp 300 orden/fraserna på polska för [kontext: vardag i Polen / café / jobb / vård]. För varje: polsk fras, svensk betydelse, enkel fonetik, 1 naturlig mening. Sortera i chunks om 30–50 med SRS-taggar: A/B/C.",
+    "starter_30": [
       {
-        "front": "Artigt 'Jag vill ha kaffe' (formellt)",
-        "back": "Poproszę kawę. / Dzień dobry, poproszę kawę.",
-        "tags": ["cafe", "politeness", "A"],
-        "source": "highfreq"
+        "pl": "Cześć",
+        "sv": "Hej (tja)",
+        "pron": "tjesjt",
+        "example": "Cześć, co słychać?",
+        "srs": "A"
       },
       {
-        "front": "Fråga 'Kan du upprepa?' (casual)",
-        "back": "Możesz powtórzyć?",
-        "tags": ["comprehension", "casual", "A"],
-        "source": "highfreq"
+        "pl": "Dzień dobry",
+        "sv": "God dag",
+        "pron": "djén dobry",
+        "example": "Dzień dobry, poproszę kawę.",
+        "srs": "A"
       },
       {
-        "front": "Fråga 'Kan ni upprepa?' (formal)",
-        "back": "Może Pan/Pani powtórzyć?",
-        "tags": ["comprehension", "formal", "A"],
-        "source": "highfreq"
+        "pl": "Dobry wieczór",
+        "sv": "God kväll",
+        "pron": "dobry vje-tjor",
+        "example": "Dobry wieczór, mam pytanie.",
+        "srs": "A"
       },
       {
-        "front": "Här / Take-away",
-        "back": "Na miejscu / Na wynos",
-        "tags": ["cafe", "travel", "A"],
-        "source": "highfreq"
+        "pl": "Do widzenia",
+        "sv": "Hej då",
+        "pron": "do vidzénja",
+        "example": "Do widzenia, miłego dnia!",
+        "srs": "A"
       },
       {
-        "front": "Notan (restaurang/café)",
-        "back": "Rachunek",
-        "tags": ["restaurant", "cafe", "vocab", "A"],
-        "source": "highfreq"
+        "pl": "Proszę",
+        "sv": "Varsågod / snälla",
+        "pron": "pro-sje",
+        "example": "Proszę, tutaj jest paragon.",
+        "srs": "A"
       },
       {
-        "front": "Kvitto",
-        "back": "Paragon",
-        "tags": ["shop", "cafe", "vocab", "A"],
-        "source": "highfreq"
+        "pl": "Dziękuję",
+        "sv": "Tack",
+        "pron": "djén-koo-ye",
+        "example": "Dziękuję bardzo.",
+        "srs": "A"
       },
       {
-        "front": "Långsammare, tack",
-        "back": "Proszę wolniej.",
-        "tags": ["comprehension", "A"],
-        "source": "highfreq"
+        "pl": "Przepraszam",
+        "sv": "Ursäkta",
+        "pron": "psje-pra-sham",
+        "example": "Przepraszam, gdzie jest…?",
+        "srs": "A"
       },
       {
-        "front": "Ursäkta (för att få uppmärksamhet)",
-        "back": "Przepraszam.",
-        "tags": ["politeness", "A"],
-        "source": "highfreq"
+        "pl": "Tak / Nie",
+        "sv": "Ja / Nej",
+        "pron": "tak / nje",
+        "example": "Tak, poproszę.",
+        "srs": "A"
       },
       {
-        "front": "Hur mycket kostar det?",
-        "back": "Ile to kosztuje?",
-        "tags": ["shop", "travel", "A"],
-        "source": "highfreq"
+        "pl": "Nie wiem",
+        "sv": "Jag vet inte",
+        "pron": "nje vjem",
+        "example": "Nie wiem, może jutro.",
+        "srs": "A"
       },
       {
-        "front": "Hej då (formellt)",
-        "back": "Do widzenia.",
-        "tags": ["politeness", "formal", "A"],
-        "source": "highfreq"
+        "pl": "Nie rozumiem",
+        "sv": "Jag förstår inte",
+        "pron": "nje ro-zu-mjem",
+        "example": "Nie rozumiem, może wolniej?",
+        "srs": "A"
+      },
+      {
+        "pl": "Powoli, proszę",
+        "sv": "Långsamt, tack",
+        "pron": "po-vo-li",
+        "example": "Powoli, proszę — uczę się polskiego.",
+        "srs": "A"
+      },
+      {
+        "pl": "Jeszcze raz",
+        "sv": "En gång till",
+        "pron": "jesjtje ras",
+        "example": "Jeszcze raz, proszę.",
+        "srs": "A"
+      },
+      {
+        "pl": "Ile to kosztuje?",
+        "sv": "Vad kostar det?",
+        "pron": "i-le to kosj-tu-ye",
+        "example": "Ile to kosztuje za kilogram?",
+        "srs": "A"
+      },
+      {
+        "pl": "Gdzie jest…?",
+        "sv": "Var är…?",
+        "pron": "gdje yest",
+        "example": "Gdzie jest przystanek?",
+        "srs": "A"
+      },
+      {
+        "pl": "Jak dojść do…?",
+        "sv": "Hur går man till…?",
+        "pron": "jak dojshch",
+        "example": "Jak dojść do centrum?",
+        "srs": "A"
+      },
+      {
+        "pl": "Która godzina?",
+        "sv": "Vad är klockan?",
+        "pron": "kto-ra go-dji-na",
+        "example": "Przepraszam, która godzina?",
+        "srs": "A"
+      },
+      {
+        "pl": "Dzisiaj / Jutro",
+        "sv": "Idag / Imorgon",
+        "pron": "djisjaj / jootro",
+        "example": "Dzisiaj nie mogę, jutro tak.",
+        "srs": "A"
+      },
+      {
+        "pl": "Teraz",
+        "sv": "Nu",
+        "pron": "te-ras",
+        "example": "Teraz mam chwilę.",
+        "srs": "A"
+      },
+      {
+        "pl": "Za chwilę",
+        "sv": "Om en stund",
+        "pron": "za hvi-le",
+        "example": "Za chwilę wrócę.",
+        "srs": "A"
+      },
+      {
+        "pl": "Jestem z…",
+        "sv": "Jag är från…",
+        "pron": "jes-tem z",
+        "example": "Jestem ze Szwecji.",
+        "srs": "A"
+      },
+      {
+        "pl": "Mówię trochę po polsku",
+        "sv": "Jag pratar lite polska",
+        "pron": "moo-vje tro-he",
+        "example": "Mówię trochę po polsku, proszę powoli.",
+        "srs": "A"
+      },
+      {
+        "pl": "Poproszę…",
+        "sv": "Jag vill ha… (beställa)",
+        "pron": "po-pro-sje",
+        "example": "Poproszę dwie bułki.",
+        "srs": "A"
+      },
+      {
+        "pl": "Chciałbym / Chciałabym…",
+        "sv": "Jag skulle vilja…",
+        "pron": "hch-yał-bym / hch-yała-bym",
+        "example": "Chciałbym zapłacić kartą.",
+        "srs": "A"
+      },
+      {
+        "pl": "Czy mogę…?",
+        "sv": "Kan jag…?",
+        "pron": "tjy mo-ge",
+        "example": "Czy mogę prosić o rachunek?",
+        "srs": "A"
+      },
+      {
+        "pl": "Mam rezerwację",
+        "sv": "Jag har en bokning",
+        "pron": "mam re-zer-va-tsje",
+        "example": "Mam rezerwację na dwie osoby.",
+        "srs": "A"
+      },
+      {
+        "pl": "Rachunek, proszę",
+        "sv": "Notan, tack",
+        "pron": "ra-hoo-nek",
+        "example": "Rachunek, proszę.",
+        "srs": "A"
+      },
+      {
+        "pl": "Kartą czy gotówką?",
+        "sv": "Kort eller kontant?",
+        "pron": "kar-tå tji go-toov-kå",
+        "example": "Kartą, poproszę.",
+        "srs": "A"
+      },
+      {
+        "pl": "Paragon",
+        "sv": "Kvitto",
+        "pron": "pa-ra-gon",
+        "example": "Poproszę paragon.",
+        "srs": "A"
+      },
+      {
+        "pl": "Pomocy!",
+        "sv": "Hjälp!",
+        "pron": "po-mo-tsy",
+        "example": "Pomocy! Zgubiłem portfel.",
+        "srs": "B"
+      },
+      {
+        "pl": "Wszystko w porządku",
+        "sv": "Allt är okej",
+        "pron": "fshysj-tko f po-shond-koo",
+        "example": "Wszystko w porządku, dziękuję.",
+        "srs": "B"
       }
     ]
+  },
+  "module_3_audio_drills": {
+    "note": "Skriv TTS-vänlig text + enkel fonetik och låt användaren tolka.",
+    "day_1_sentences": [
+      "Przepraszam, gdzie jest najbliższy sklep?",
+      "Poproszę kawę z mlekiem i wodę niegazowaną.",
+      "Czy mogę zapłacić kartą?",
+      "Nie rozumiem. Może Pan/Pani powtórzyć?",
+      "Szukam przystanku do Gdańska.",
+      "O której godzinie jest spotkanie?",
+      "Dzisiaj nie mam czasu, ale jutro mogę.",
+      "Proszę mówić wolniej, uczę się polskiego.",
+      "To jest dla mnie za drogie.",
+      "Wezmę to. Poproszę paragon."
+    ]
+  },
+  "module_4_conversation_loop": {
+    "prompt": "Rollspela en dialog på polska för scenariot [café / butik / läkare / hyresvärd / kollega]. Regler: Du säger 1–2 repliker och väntar på mitt svar. Rätta mina fel kort efter varje svar: (1) korrekt version, (2) varför (bara mönster), (3) en mer naturlig variant. Håll samma story och öka svårigheten gradvis. Var noga med artighet (pan/pani) när det behövs."
+  },
+  "module_5_minimal_grammar": {
+    "prompt": "Lär mig endast grammatiken jag behöver för att klara dagens dialog: [klistra in dialogen här]. Förklara som mönster + mallar, inte regler. Ge 3 återanvändbara exempel per mönster.",
+    "templates": [
+      {
+        "pattern": "Proszę + [sak]",
+        "examples": ["Proszę kawę.", "Proszę pomoc.", "Proszę rachunek."]
+      },
+      {
+        "pattern": "Czy mogę + [verb]…?",
+        "examples": ["Czy mogę wejść?", "Czy mogę zapłacić?", "Czy mogę prosić o…?"]
+      },
+      {
+        "pattern": "Nie rozumiem / Nie wiem + [fortsättning]",
+        "examples": ["Nie rozumiem.", "Nie wiem, może później.", "Nie rozumiem, proszę powtórzyć."]
+      }
+    ]
+  },
+  "module_6_weekly_recall": {
+    "prompt": "Kör ett veckotest i polska (10 minuter): 15 snabba översättningar (SV→PL) från veckans vocab, 5 lyssningsliknande meningar (PL→SV tolkning), 1 mini-dialog (6 repliker) där jag fyller i luckor. Efteråt: skriv en svaghetsrapport (uttal, artighet, ordförråd, tempo, felmönster) och bygg om nästa veckas plan utifrån det."
   }
 }
