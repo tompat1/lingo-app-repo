@@ -22,6 +22,11 @@ pnpm install
 pnpm start
 ```
 
+Om `pnpm install` klagar på `@types/react-native@~0.76.0` finns den versionen inte publicerad. React Native inkluderar TypeScript-typer, så ta bort `@types/react-native` om den råkar finnas som dependency, eller pinna den till senaste publicerade version. Du kan kontrollera listan med:
+```bash
+pnpm view @types/react-native versions
+```
+
 Start-check för Expo-entry (valfritt men bra för CI/lokalt):
 ```bash
 pnpm -C apps/mobile test:start-check
