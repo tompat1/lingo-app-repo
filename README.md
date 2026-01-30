@@ -22,6 +22,12 @@ pnpm install
 pnpm start
 ```
 
+För att köra webben på `http://localhost:8081`, använd:
+```bash
+pnpm -C apps/mobile web:8081
+```
+`pnpm -C apps/mobile web` kör webben på standardporten (vanligen `http://localhost:19006`).
+
 Om appen körs i emulator/enhet kommer `localhost` inte peka på API:t. Sätt då
 `EXPO_PUBLIC_API_BASE` till din dator-IP (t.ex. `http://192.168.x.x:8000`), eller
 använd Android-emulatorns standard `http://10.0.2.2:8000`.
