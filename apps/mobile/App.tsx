@@ -1,5 +1,12 @@
 import React, { useMemo, useState } from "react";
-import { SafeAreaView, Text, View, Pressable, ScrollView } from "react-native";
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import * as Speech from "expo-speech";
 
 type DailySession = {
@@ -22,7 +29,9 @@ type DailySessionRecord = {
   session_json: DailySession;
 };
 
-const API_BASE = process.env.EXPO_PUBLIC_API_BASE ?? "http://localhost:8000";
+const DEFAULT_API_BASE =
+  Platform.OS === "android" ? "http://10.0.2.2:8000" : "http://localhost:8000";
+const API_BASE = process.env.EXPO_PUBLIC_API_BASE ?? DEFAULT_API_BASE;
 
 export default function App() {
   const [session, setSession] = useState<DailySessionRecord | null>(null);
