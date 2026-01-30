@@ -10,194 +10,164 @@ PolishPackKey = Tuple[str, str]
 POLISH_PACK_V1: Dict[PolishPackKey, List[dict]] = {
     ("cafe", "formal"): [
         {
-            "mission": "Café dag 1: beställa artigt och tydligt",
+            "mission": "Vecka 1: överlevnad & artighet (startpaket)",
             "scene": "cafe",
             "tone": "formal",
             "sentences": [
                 {
-                    "pl": "Dzień dobry, poproszę kawę z mlekiem.",
-                    "sv": "God dag, jag vill ha kaffe med mjölk.",
+                    "pl": "Przepraszam, gdzie jest najbliższy sklep?",
+                    "sv": "Ursäkta, var är närmaste butik?",
                     "checks": [
-                        {"q": "Vad beställer du?", "a": "kawę z mlekiem"},
-                        {"q": "Är tonen formell?", "a": "ja"},
+                        {"q": "Vad frågar du efter?", "a": "najbliższy sklep"},
+                        {"q": "Vad betyder \"najbliższy\"?", "a": "närmast"},
                     ],
                 },
                 {
-                    "pl": "Czy mogę dostać rachunek, proszę?",
-                    "sv": "Kan jag få notan, tack?",
-                    "checks": [{"q": "Vad frågar du efter?", "a": "rachunek"}],
-                },
-                {
-                    "pl": "Poproszę cappuccino.",
-                    "sv": "Jag vill ha en cappuccino.",
-                    "checks": [{"q": "Vad beställer du?", "a": "cappuccino"}],
-                },
-                {
-                    "pl": "Chciałbym małą kawę na miejscu.",
-                    "sv": "Jag skulle vilja ha en liten kaffe här.",
-                },
-                {
-                    "pl": "Czy macie ciasto marchewkowe?",
-                    "sv": "Har ni morotskaka?",
-                },
-                {
-                    "pl": "Poproszę szklankę wody.",
-                    "sv": "Jag vill ha ett glas vatten.",
+                    "pl": "Poproszę kawę z mlekiem i wodę niegazowaną.",
+                    "sv": "Jag vill ha kaffe med mjölk och stilla vatten.",
+                    "checks": [
+                        {"q": "Vad beställer du?", "a": "kawę z mlekiem i wodę niegazowaną"},
+                        {"q": "Vad betyder \"niegazowaną\"?", "a": "utan kolsyra"},
+                    ],
                 },
                 {
                     "pl": "Czy mogę zapłacić kartą?",
                     "sv": "Kan jag betala med kort?",
+                    "checks": [
+                        {"q": "Vad vill du göra?", "a": "zapłacić kartą"},
+                        {"q": "Vilket ord betyder kort?", "a": "kartą"},
+                    ],
                 },
                 {
-                    "pl": "Dziękuję bardzo.",
-                    "sv": "Tack så mycket.",
+                    "pl": "Nie rozumiem. Może Pan/Pani powtórzyć?",
+                    "sv": "Jag förstår inte. Kan ni upprepa?",
+                    "checks": [
+                        {"q": "Vad ber du om?", "a": "powtórzyć"},
+                        {"q": "Varför två varianter?", "a": "pan/pani = artigt tilltal"},
+                    ],
                 },
                 {
-                    "pl": "Przepraszam, gdzie jest toaleta?",
-                    "sv": "Ursäkta, var är toaletten?",
+                    "pl": "Szukam przystanku do Gdańska.",
+                    "sv": "Jag letar efter hållplatsen till Gdańsk.",
+                    "checks": [
+                        {"q": "Vad letar du efter?", "a": "przystanku"},
+                        {"q": "Till vilken plats?", "a": "Gdańska"},
+                    ],
                 },
                 {
-                    "pl": "Czy to jest świeże?",
-                    "sv": "Är det här färskt?",
+                    "pl": "O której godzinie jest spotkanie?",
+                    "sv": "Vilken tid är mötet?",
+                    "checks": [
+                        {"q": "Vad handlar det om?", "a": "spotkanie"},
+                        {"q": "Vilket ord signalerar klockslag?", "a": "godzinie"},
+                    ],
                 },
                 {
-                    "pl": "Poproszę herbatę z cytryną.",
-                    "sv": "Jag vill ha te med citron.",
+                    "pl": "Dzisiaj nie mam czasu, ale jutro mogę.",
+                    "sv": "Idag har jag inte tid, men imorgon kan jag.",
+                    "checks": [
+                        {"q": "När kan du?", "a": "jutro"},
+                        {"q": "Vad säger du om idag?", "a": "nie mam czasu"},
+                    ],
                 },
                 {
-                    "pl": "Czy mogę dostać cukier?",
-                    "sv": "Kan jag få socker?",
+                    "pl": "Proszę mówić wolniej, uczę się polskiego.",
+                    "sv": "Snälla prata långsammare, jag lär mig polska.",
+                    "checks": [
+                        {"q": "Vad ber du personen göra?", "a": "mówić wolniej"},
+                        {"q": "Varför fungerar meningen?", "a": "du säger att du lär dig polska"},
+                    ],
                 },
                 {
-                    "pl": "Bez cukru, proszę.",
-                    "sv": "Utan socker, tack.",
+                    "pl": "To jest dla mnie za drogie.",
+                    "sv": "Det är för dyrt för mig.",
+                    "checks": [
+                        {"q": "Vad betyder \"za drogie\"?", "a": "för dyrt"},
+                        {"q": "När används det?", "a": "när något är för dyrt"},
+                    ],
                 },
                 {
-                    "pl": "Wezmę kanapkę z serem.",
-                    "sv": "Jag tar en smörgås med ost.",
-                },
-                {
-                    "pl": "Czy macie mleko roślinne?",
-                    "sv": "Har ni växtmjölk?",
-                },
-                {
-                    "pl": "Poproszę jedno espresso.",
-                    "sv": "Jag vill ha en espresso.",
-                },
-                {
-                    "pl": "Czy to jest na wynos?",
-                    "sv": "Är det här för avhämtning?",
-                },
-                {
-                    "pl": "Poproszę dwie kawy.",
-                    "sv": "Jag vill ha två kaffe.",
-                },
-                {
-                    "pl": "Ile to kosztuje?",
-                    "sv": "Hur mycket kostar det?",
-                },
-                {
-                    "pl": "Czy mogę prosić o paragon?",
-                    "sv": "Kan jag få kvittot?",
-                },
-                {
-                    "pl": "Dzień dobry, poproszę stolik przy oknie.",
-                    "sv": "God dag, jag vill ha ett bord vid fönstret.",
-                },
-                {
-                    "pl": "Czy jest wolne miejsce?",
-                    "sv": "Finns det en ledig plats?",
-                },
-                {
-                    "pl": "Poproszę menu, proszę.",
-                    "sv": "Jag vill ha menyn, tack.",
-                },
-                {
-                    "pl": "Chciałbym zapłacić osobno.",
-                    "sv": "Jag skulle vilja betala separat.",
-                },
-                {
-                    "pl": "Proszę o podgrzanie tej kanapki.",
-                    "sv": "Kan ni värma den här smörgåsen?",
-                },
-                {
-                    "pl": "Czy macie coś bezglutenowego?",
-                    "sv": "Har ni något glutenfritt?",
-                },
-                {
-                    "pl": "Poproszę lód do napoju.",
-                    "sv": "Jag vill ha is till drycken.",
-                },
-                {
-                    "pl": "To wszystko, dziękuję.",
-                    "sv": "Det var allt, tack.",
-                },
-                {
-                    "pl": "Czy mogę prosić o chwilę?",
-                    "sv": "Kan jag få en liten stund?",
-                },
-                {
-                    "pl": "Smakuje bardzo dobrze.",
-                    "sv": "Det smakar väldigt gott.",
+                    "pl": "Wezmę to. Poproszę paragon.",
+                    "sv": "Jag tar det. Jag vill ha kvitto.",
+                    "checks": [
+                        {"q": "Vad bestämmer du?", "a": "wezmę to"},
+                        {"q": "Vad vill du ha efteråt?", "a": "paragon"},
+                    ],
                 },
             ],
             "dialog_seed": {"role": "barista", "opening": "Dzień dobry! Co podać?"},
             "patterns": [
                 {
-                    "template": "Poproszę + [sak].",
-                    "examples": ["Poproszę wodę.", "Poproszę rachunek."],
+                    "template": "Proszę + [sak].",
+                    "examples": ["Proszę kawę.", "Proszę pomoc.", "Proszę rachunek."],
+                },
+                {
+                    "template": "Czy mogę + [verb]...?",
+                    "examples": [
+                        "Czy mogę wejść?",
+                        "Czy mogę zapłacić?",
+                        "Czy mogę prosić o paragon?",
+                    ],
+                },
+                {
+                    "template": "Nie rozumiem / Nie wiem + [fortsättning].",
+                    "examples": [
+                        "Nie rozumiem.",
+                        "Nie wiem, może później.",
+                        "Nie rozumiem, proszę powtórzyć.",
+                    ],
                 }
             ],
             "start_srs": [
                 {
-                    "front": "kawa z mlekiem",
-                    "back": "kaffe med mjölk",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "front": "najbliższy sklep",
+                    "back": "närmaste butik",
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
-                    "front": "rachunek",
-                    "back": "nota",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "front": "woda niegazowana",
+                    "back": "stilla vatten",
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
-                    "front": "płacić kartą",
+                    "front": "zapłacić kartą",
                     "back": "betala med kort",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
-                    "front": "na wynos",
-                    "back": "för avhämtning",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "front": "powtórzyć",
+                    "back": "upprepa",
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
-                    "front": "cukier",
-                    "back": "socker",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "front": "przystanek",
+                    "back": "hållplats",
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
-                    "front": "mleko roślinne",
-                    "back": "växtmjölk",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "front": "spotkanie",
+                    "back": "möte",
+                    "tags": ["starter-pack", "week-1", "day-1"],
+                },
+                {
+                    "front": "jutro",
+                    "back": "imorgon",
+                    "tags": ["starter-pack", "week-1", "day-1"],
+                },
+                {
+                    "front": "wolniej",
+                    "back": "långsammare",
+                    "tags": ["starter-pack", "week-1", "day-1"],
+                },
+                {
+                    "front": "za drogie",
+                    "back": "för dyrt",
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
                 {
                     "front": "paragon",
                     "back": "kvitto",
-                    "tags": ["starter-pack", "cafe", "day-1"],
-                },
-                {
-                    "front": "stolik przy oknie",
-                    "back": "bord vid fönstret",
-                    "tags": ["starter-pack", "cafe", "day-1"],
-                },
-                {
-                    "front": "bezglutenowy",
-                    "back": "glutenfri",
-                    "tags": ["starter-pack", "cafe", "day-1"],
-                },
-                {
-                    "front": "menu",
-                    "back": "meny",
-                    "tags": ["starter-pack", "cafe", "day-1"],
+                    "tags": ["starter-pack", "week-1", "day-1"],
                 },
             ],
         }

@@ -3,21 +3,25 @@ from __future__ import annotations
 from .contracts import DailySession
 
 SAMPLE_CAFE_FORMAL = DailySession.model_validate({
-    "mission": "Beställa på café med rätt artighet",
+    "mission": "Vecka 1: överlevnad & artighet (startpaket)",
     "scene": "cafe",
     "tone": "formal",
     "sentences": [
         {
-            "pl": "Dzień dobry, poproszę kawę z mlekiem.",
-            "sv": "God dag, jag vill ha kaffe med mjölk.",
+            "pl": "Przepraszam, gdzie jest najbliższy sklep?",
+            "sv": "Ursäkta, var är närmaste butik?",
             "checks": [
-                {"q": "Vad beställer du?", "a": "kawę z mlekiem"},
-                {"q": "Är tonen formell?", "a": "ja"}
+                {"q": "Vad frågar du efter?", "a": "najbliższy sklep"},
+                {"q": "Vad betyder \"najbliższy\"?", "a": "närmast"}
             ]
         }
     ],
     "dialog_seed": {"role": "barista", "opening": "Dzień dobry! Co podać?"},
     "patterns": [
-        {"template": "Poproszę + [sak].", "examples": ["Poproszę wodę.", "Poproszę rachunek."]}
+        {"template": "Proszę + [sak].", "examples": ["Proszę kawę.", "Proszę pomoc.", "Proszę rachunek."]},
+        {
+            "template": "Czy mogę + [verb]...?",
+            "examples": ["Czy mogę wejść?", "Czy mogę zapłacić?", "Czy mogę prosić o paragon?"]
+        }
     ]
 })
